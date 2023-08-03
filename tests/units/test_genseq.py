@@ -18,6 +18,7 @@ def test_translate():
     # Checking for a valid amino acid sequence length
     assert len(protein_seq) * 3 <= len(gen_seq.sequence)
 
+@pytest.mark.group1
 def test_insert_valid_nucleotide():
     gen_seq = GenerateSeq(100)
     gen_seq.insert(5, 'A')
@@ -31,6 +32,7 @@ def test_insert_invalid_nucleotide1():
     except ValueError as e:
         assert str(e) == "Invalid nucleotide"
 
+@pytest.mark.group1
 def test_insert_invalid_nucleotide2():
     gen_seq = GenerateSeq(100)
     try:
