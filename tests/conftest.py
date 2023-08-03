@@ -9,10 +9,6 @@ def pytest_addoption(parser):
     )
 
 
-def pytest_configure(config):
-    config.addinivalue_line("markers", "slow: mark test as slow to run")
-
-
 def pytest_collection_modifyitems(config, items):
     skip_slow = pytest.mark.skip(reason="need --runslow option to run")
     skip_fast = pytest.mark.skip(reason="--runonlyslow option was used; this test is fast")
@@ -22,3 +18,9 @@ def pytest_collection_modifyitems(config, items):
                 item.add_marker(skip_slow)
         elif config.getoption("--runonlyslow"):
             item.add_marker(skip_fast)
+
+@pytest.fixture(autouse=True, scope="session")
+def setup_session():
+    print("\n\nSetting up session...\n\n")
+    yield
+    print("\n\nTearing down session...\n\n")
