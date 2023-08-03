@@ -13,6 +13,7 @@ def test_alignment():
     assert align1 == seq2
     assert align2 == seq1
 
+@pytest.mark.group1
 def test_split_into_kmers():
     sequence = 'ATCGATCG'
     k = 3
