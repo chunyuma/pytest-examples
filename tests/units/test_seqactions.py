@@ -1,4 +1,5 @@
 from srcs.seqactions import SequenceActions
+import pytest
 
 def test_alignment():
     seq1 = 'GATTACA'
