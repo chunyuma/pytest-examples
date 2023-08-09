@@ -1,4 +1,5 @@
 import random
+import pytest
 from srcs.genseq import GenerateSeq
 
 def test_generate_random_sequence_length():
